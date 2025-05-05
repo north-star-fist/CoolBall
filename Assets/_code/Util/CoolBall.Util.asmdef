@@ -1,0 +1,28 @@
+{
+    "name": "CoolBall.Util",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:77221876cc6b8244180b96e320b1bcd4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.cysharp.r3",
+            "expression": "",
+            "define": "R3"
+        },
+        {
+            "name": "com.unity.textmeshpro",
+            "expression": "",
+            "define": "TMP"
+        }
+    ],
+    "noEngineReferences": false
+}

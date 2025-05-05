@@ -1,0 +1,18 @@
+{
+    "name": "CoolBall.Util.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bc4d91f8f67bf2d4ba7422e0875681ef"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

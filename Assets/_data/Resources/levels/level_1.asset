@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8b29941f4a5304bb401debd87976b6, type: 3}
+  m_Name: level_1
+  m_EditorClassIdentifier: 
+  <LevelSceneKyey>k__BackingField: level_1
+  MaxShots: 15
+  BallsSettings:
+  - Score: 2
+    Material: {fileID: 2100000, guid: eea122af2d786a844826da29c78ccac8, type: 2}
+    Layer: 8
+    SpriteIndex: 1
+    Color: {r: 1, g: 0.8470589, b: 0, a: 1}
+  - Score: 4
+    Material: {fileID: 2100000, guid: 0c834bedd24b94a4ea7006eb4993c17c, type: 2}
+    Layer: 9
+    SpriteIndex: 2
+    Color: {r: 0, g: 0.96470594, b: 1, a: 1}
+  - Score: 6
+    Material: {fileID: 2100000, guid: 0370ea4830840b14fb9784836dadc85a, type: 2}
+    Layer: 10
+    SpriteIndex: 3
+    Color: {r: 1, g: 0, b: 0, a: 1}
+  - Score: 8
+    Material: {fileID: 2100000, guid: 2539d97bff3125d45be2ec7246716dfa, type: 2}
+    Layer: 11
+    SpriteIndex: 4
+    Color: {r: 0.69803923, g: 0, b: 1, a: 1}
+  - Score: 10
+    Material: {fileID: 2100000, guid: ae7aea4c09b17eb42863c666358976fa, type: 2}
+    Layer: 12
+    SpriteIndex: 5
+    Color: {r: 0.8470589, g: 0.3529412, b: 0, a: 1}
+  - Score: 12
+    Material: {fileID: 2100000, guid: ec648d696fdcef641be7c8c356c8b87e, type: 2}
+    Layer: 13
+    SpriteIndex: 6
+    Color: {r: 0, g: 1, b: 0.12941177, a: 1}
+  - Score: 14
+    Material: {fileID: 2100000, guid: aec6d339512cbf64cb1c094ceee7283e, type: 2}
+    Layer: 14
+    SpriteIndex: 7
+    Color: {r: 0.49411768, g: 0.20000002, b: 0, a: 1}
+  - Score: 16
+    Material: {fileID: 2100000, guid: d6bcb86877280254390d7766abfe5b5c, type: 2}
+    Layer: 15
+    SpriteIndex: 8
+    Color: {r: 0, g: 0, b: 0, a: 0}
+  NewBallsRange: {x: 0, y: 2}
+  ChangeBallsRange: {x: 3, y: 5}
