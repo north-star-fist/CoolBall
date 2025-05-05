@@ -767,7 +767,7 @@ MonoBehaviour:
   _hintCircleRenderer: {fileID: 2098851557}
   _hintRayCollisionMask:
     serializedVersion: 2
-    m_Bits: 65281
+    m_Bits: 65344
   _scoreText: {fileID: 1015129340}
   _8xText: {fileID: 610041619}
   _shotsImage: {fileID: 1725604684}

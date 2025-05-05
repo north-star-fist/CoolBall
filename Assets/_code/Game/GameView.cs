@@ -167,8 +167,11 @@ namespace Coolball {
         }
 
         private void Update() {
-            if (_touching && _legitTouchPosition.HasValue) {
+            //if (_touching && _legitTouchPosition.HasValue) {
+            if (_currentBall.HasValue && _legitTouchPosition.HasValue) {
                 Aim(_legitTouchPosition.Value);
+            } else {
+                HideAiming();
             }
         }
 
@@ -372,9 +375,10 @@ namespace Coolball {
             Vector3 thisPosition = _ballSpawner.transform.position;
             _shotDirection = dir;
             if (_hintRayRenderer != null) {
-                Vector3? wallPoint = GetWallPoint(dir);
-                if (wallPoint.HasValue) {
-                    var circleCenter = wallPoint.Value - dir * _ballRadius;
+                _hintRayRenderer.gameObject.SetActive(true);
+                float? wallDist = GetWallDistance(dir);
+                if (wallDist.HasValue) {
+                    var circleCenter = thisPosition + dir * wallDist.Value;
                     _hintRayRenderer.SetPosition(0, thisPosition);
                     _hintRayRenderer.SetPosition(1, circleCenter);
                     DrawHintCircle(circleCenter);
@@ -599,7 +603,7 @@ namespace Coolball {
         }
 
 
-        private Vector3? GetWallPoint(Vector3 dir) {
+        private float? GetWallDistance(Vector3 dir) {
             return Physics.SphereCast(
                 _ballSpawner.transform.position,
                 _ballRadius,
@@ -609,7 +613,7 @@ namespace Coolball {
                 _hintRayCollisionMask,
                 QueryTriggerInteraction.Ignore
             )
-                ? hitInfo.point
+                ? hitInfo.distance
                 : null;
         }
 
@@ -624,6 +628,7 @@ namespace Coolball {
             if (_hintCircleRenderer == null) {
                 return;
             }
+            _hintCircleRenderer.gameObject.SetActive(true);
             for (int i = 0; i < HintCirclePointsCount; ++i) {
                 float angleDelta = 2 * Mathf.PI / HintCirclePointsCount;
                 Vector3 radialOffset = new Vector3(Mathf.Cos(i * angleDelta), 0, Mathf.Sin(i * angleDelta));
@@ -633,6 +638,15 @@ namespace Coolball {
 
         private void HideDummy() {
             _dummyBall.gameObject.SetActive(false);
+        }
+
+        private void HideAiming() {
+            if (_hintRayRenderer != null) {
+                _hintRayRenderer.gameObject.SetActive(false);
+            }
+            if (_hintCircleRenderer != null) {
+                _hintCircleRenderer.gameObject.SetActive(false);
+            }
         }
     }
 }
