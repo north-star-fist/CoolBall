@@ -357,7 +357,7 @@ namespace Coolball {
                 _ballEliminated.OnNext((ball.BallNumber, ball.transform.position));
 
                 // dirty hack with sfx/vfx. We don't play it when no notification (when twin top ball explodes)
-                if (ball.BallNumber == _levelSettings.BallsSettings.Count - 1 && _topBallEliminationSfx != null) {
+                if (IsTopBall(ball.BallNumber) && _topBallEliminationSfx != null) {
                     PlaySound(_topBallEliminationSfx);
                 } else {
                     PlaySound(_ballEliminationSfx);
@@ -557,15 +557,15 @@ namespace Coolball {
         }
 
         private IObjectPool<ColoredParticles> GetTopElimVfxPool() {
-            if (_ballElimVfxPool == null) {
-                _ballElimVfxPool = new ObjectPool<ColoredParticles>(
+            if (_topBallElimVfxPool == null) {
+                _topBallElimVfxPool = new ObjectPool<ColoredParticles>(
                     createFunc: CreateTopElimVfx,
                     actionOnGet: SwitchElimVfxOn,
                     actionOnRelease: SwitchElimVfxOff,
                     actionOnDestroy: Destroy
                 );
             }
-            return _ballElimVfxPool;
+            return _topBallElimVfxPool;
         }
 
         private ColoredParticles CreateTopElimVfx() {
@@ -577,7 +577,7 @@ namespace Coolball {
 
         private void Explode(int ballNumber, Vector3 position) {
             ColoredParticles ps = null;
-            if (ballNumber == _levelSettings.BallsSettings.Count - 1 && _topBallEliminationVfx != null) {
+            if (IsTopBall(ballNumber) && _topBallEliminationVfx != null) {
                 ps = GetTopElimVfxFromPool();
             } else {
                 if (_ballEliminationVfx != null) {
@@ -589,6 +589,7 @@ namespace Coolball {
                 ps.SetColor(_levelSettings.BallsSettings[ballNumber].Color);
             }
         }
+
 
         private bool IsWithinAimingLimits(Vector3 point, out Vector3 direction) {
             direction = Vector3.zero;
@@ -648,5 +649,7 @@ namespace Coolball {
                 _hintCircleRenderer.gameObject.SetActive(false);
             }
         }
+
+        private bool IsTopBall(int ballNumber) => ballNumber == _levelSettings.BallsSettings.Count - 1;
     }
 }
